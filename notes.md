@@ -29,3 +29,40 @@ https://angular.io/api/common/AsyncPipe
 * Json
 * Async
 * Date
+
+
+
+
+
+### FORMULARIOS REACTIVOS
+
+Los formularios reactivos son una forma de crear y gestionar los formularios en angular utilizando enfoques basados en modelo sy observables.
+Nos permite definir la estructura y el comportamiento de los formularios de manera programática.
+
+``{
+  titulo: "";
+  subTitulo: "";
+  detalle: "";
+}``
+
+>Los datos de dichos formularios están enlazados a un modelo de datos (**Objeto**)
+
+>Cada atributo de ese modelo de datos será enlazado a un elemento en el **HTML**
+
+>Cada cambio que ocurre en el formulario devuelve un nuevo estado, lo que ayuda a mantener la integridad del modelo de datos entre cada cambio
+
+## Uso de Formulario reactivos
+
+Para hacer uso de los formularios reactivos necesitamos importar el módulo **ReactiveFormsModule** dentro del **modulo** o **componente standalone** que lo necesite
+
+## Validacion
+
+Los formularios reactivos también permiten apliar validadores a cada atributo del modelo de datos o directamente al **FormGroup**
+Podesmos usar los valiadores que nos provee angular a tráves de la clase **Validators** o crear nuestros propios validadores
+
+>{ 
+> titulo: ["", Validators.required];
+> subTitulo: ["", Validators.required;
+> detalle: ["", Validators.required;
+}``
+
