@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
-import {UserComponent} from "./components/user/user.component";
+import {UsersListComponent} from "./components/users-list/users-list.component";
 import {UserShowComponent} from "./components/user-show/user-show.component";
+import {TodoParentComponent} from "./components/todo-parent/todo-parent.component";
 
 export const routes: Routes = [
-  {path: '', component: UserComponent},
-  {path: 'users/:id', component: UserShowComponent}
+  {path: '', component: UsersListComponent},
+  {path: 'users/:id', component: UserShowComponent},
+  {path: 'todo', component: TodoParentComponent},
 ];

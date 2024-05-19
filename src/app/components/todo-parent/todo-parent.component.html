@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>TODO APP</mat-card-title>
+    <mat-card-subtitle>----</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form" [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Tarea</mat-label>
+        <input formControlName="name"
+          type="text" matInput placeholder="ingresa la tarea">
+
+        @if (todoForm.hasError('required') ) {
+          <mat-error>Porfavor ingresa un dato</mat-error>
+        }
+
+        @if(!todoForm.hasError('minLength')){
+          <mat-error>La tarea debe contener al menos 6 caracters</mat-error>
+        }
+      </mat-form-field>
+
+      <button [disabled]="!todoForm.valid"
+        mat-stroked-button color="primary" type="submit">
+        Enviar
+      </button>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<br>
+<br>
+<app-todo-child [items]="itemsFromParent"></app-todo-child>
