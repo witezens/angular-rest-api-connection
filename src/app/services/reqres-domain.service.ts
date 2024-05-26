@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {UsersInterface} from "../interfaces/users-interface";
+import {UserCreate} from "../interfaces/user-create";
+import {UserCreateInterface} from "../interfaces/user-create-interface";
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +22,10 @@ export class ReqresDomainService {
     return this.httpClient.get(`${this.BASE_URL}/users/${id}`)
     .pipe(res => res)
   }
+
+  addUser(user: UserCreateInterface): Observable<any> {
+    return this.httpClient.post(`${this.BASE_URL}/users`, user)
+    .pipe(res => res)
+  }
+
 }

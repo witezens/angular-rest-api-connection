@@ -1,0 +1,31 @@
+<mat-card class="example-card">
+  <mat-card-content>
+    <form class="example-form" [formGroup]="userForm" (ngSubmit)="fnSubmit()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name">
+        @if(userForm.controls.name.hasError('required')){
+          <mat-error>Please enter a name</mat-error>
+        }
+        @if (userForm.controls.name.hasError('minlength')){
+          <mat-error>Min Length 5 characters</mat-error>
+        }
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Job</mat-label>
+        <input type="text" matInput formControlName="job">
+      </mat-form-field>
+      <br>
+      <button type="submit" [disabled]="!userForm.valid"
+        mat-raised-button color="primary">Submit</button>
+    </form>
+
+    <br>
+    <strong style="color: white">{{userForm.valid}}</strong>
+    <!--pre style="color: white">Campo nombre: {{userForm.controls.name.errors | json}}</pre>
+    <pre style="color: white">Campo nombre->Existe error de requerido: {{userForm.controls.name.hasError('required') | json}}</pre>
+    <pre style="color: white">Campo nombre->Existe error de longitud: {{userForm.controls.name.hasError('minlength') | json}}</pre>
+    <pre style="color: white">{{userForm.value | json }}</pre-->
+  </mat-card-content>
+</mat-card>
