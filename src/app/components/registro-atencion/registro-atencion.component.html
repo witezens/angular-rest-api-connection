@@ -1,0 +1,25 @@
+<div style="margin:20px">
+  <form class="example-form" [formGroup]="registroForm" (ngSubmit)="enviarFormulario()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput formControlName="name">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <br>
+      <mat-label>DPI</mat-label>
+      <input type="text" matInput formControlName="dni">
+    </mat-form-field>
+    <br>
+    <button type="submit" mat-raised-button color="primary"
+            [disabled]="!registroForm.valid"
+    >Agregar</button>
+  </form>
+
+  <!--pre>Es mi formulario válido? {{registroForm.valid}}</pre-->
+  <pre>Lista espera desde padre: {{listaEspera | json}}</pre>
+
+  <app-lista-espera [lista]="listaEspera" ></app-lista-espera>
+
+</div>
+

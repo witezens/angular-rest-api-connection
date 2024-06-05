@@ -1,0 +1,23 @@
+
+<table style="margin:10px; background-color: #d1d1d1">
+  <thead>
+  <tr>
+    <td>Nombre</td>
+    <td>DPI</td>
+    <td>Accion</td>
+  </tr>
+  </thead>
+  <tbody>
+    @for (item of lista; track $index){
+      <tr>
+        <td style="padding: 0 10px;">{{item.name}}</td>
+        <td style="padding: 0 10px;">{{item.dni}}</td>
+        <td style="padding: 0 10px;">
+          <button (click)="removeItem($index)">Eliminar</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<pre>Lista espera desde hijo: {{lista | json}}</pre>
